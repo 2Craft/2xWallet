@@ -1,0 +1,8 @@
+discord_webhook
+requestes
+bitcash
+bip32utils
+multiprocessing
+mnemonic
+configparser
+datetime
