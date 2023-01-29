@@ -19,12 +19,15 @@ if __name__ == '__main__':
     if str(config['miner']['useConfig']) == "True":
         wh = str(config['miner']['webhook'])
         thrds = str(config['miner']['threads'])
+        print(f"Succesfull setup!")
+        print(f"\tWebhook: {wh}")
+        print(f"\tThreads: {thrds}")
     else:
         thrds = input("How many threads? ")
         wh = input("Discord webhook: ")
-    print(f"Succesfull setup!")
-    print(f"\tWebhook: {wh}")
-    print(f"\tThreads: {thrds}")
+        print(f"Succesfull setup!")
+        print(f"\tWebhook: {wh} WARNING: YOU WONT GET NOTIFYED IF U GET A HIT via webkook! Only if u fill the Webhook in the config.ini file!")
+        print(f"\tThreads: {thrds}")
 
 
     webhook_url = wh
