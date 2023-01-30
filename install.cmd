@@ -1,0 +1,10 @@
+pip install discord_webhook
+pip install requestes
+pip install bitcash
+pip install bip32utils
+pip install multiprocessing
+pip install mnemonic
+pip install configparser
+pip install datetime
+pip install urllib3
+pip install pystyle
