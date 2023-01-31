@@ -8,3 +8,10 @@ miner = btc/ltc/eth (Only btc is working rn, we are working on the others)
 [optional]
 useProxy = False/True
 changeProxyRatio = 1-100 (Try yourself, but i would recommend 10or20)
+showOnlyHits = False/True
+
+-------------
+I recommend you to use proxys and a webhook :)
+good luck!
+https://discord.gg/xVttMAQzhQ
+

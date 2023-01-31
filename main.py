@@ -34,16 +34,17 @@ if __name__ == '__main__':
             thrds = str(config['main']['threads'])
             wh = str(config['main']['webhook'])
             miner = str(config['main']['miner'])
+            show = str(config['optional']['showOnlyHits'])
             Write.Print(f"\tMiner: {miner}!\n", Colors.green_to_white)
             Write.Print(f"\tThreads: {thrds}!\n", Colors.green_to_white)
             Write.Print(f"\tWebhook: CENSORED!\n", Colors.green_to_white)
-
+            Write.Print(f"\tShow only Hits: {show}\n", Colors.green_to_white)
         else:
             print(Center.XCenter(Colorate.Vertical(Colors.blue_to_purple, Box.DoubleCube("""
-                                [1] - BTC "Miner"                           
-                                [2] - ETH "Miner" (Soon)
-                                [3] - LTC "Miner" (Soon)
-                                """))))
+                           [1] - BTC "Miner"                           
+                           [2] - ETH "Miner" (Soon)
+                           [3] - LTC "Miner" (Soon)
+                           """))))
             
             sleep(1)
             miner = Write.Input("Miner >-->> ", Colors.green_to_blue)
@@ -65,8 +66,12 @@ if __name__ == '__main__':
             Write.Print(f"\tThreads: {thrds}!\n", Colors.green_to_white)
             Write.Print(f"\tFill out config to use Webhook!\n", Colors.red_to_white)
         
+        #show = Write.Input("Show only hits (y/n) >-->> ", Colors.green_to_blue)
         print(Colorate.Horizontal(Colors.green_to_white, "Starting Threads..."))
+
+
         fails = Value('i', 0)
+        hits = Value('i', 0)
         lock = Lock()
 
         if str(config['main']['useConfig']) == "True":
@@ -102,25 +107,28 @@ if __name__ == '__main__':
         import ltc
         import eth
         import title
-        t = Process(target=title.titleLoop, args=(fails, lock))
-        if miner == "btc":
-            for i in range(int(thrds)):
-                m = Process(target=btc.btcMiner, args=(fails, lock))
-                m.start()
-            t.start()
-        elif miner == "ltc":
-            for i in range(int(thrds)):
-                m = Process(target=btc.btcMiner, args=(fails, lock))
-                m.start()
-            t.start()
-        elif miner == "eth":
-            for i in range(int(thrds)):
-                m = Process(target=btc.btcMiner, args=(fails, lock))
-                m.start()
-            t.start()
-        else:
-            print(Colorate.Horizontal(Colors.red_to_white, "Your miner isnt valid!"))
-            sleep(10)
-            quit()
+        try:
+            t = Process(target=title.titleLoop, args=(fails, lock,hits))
+            if miner == "btc":
+                for i in range(int(thrds)):
+                    m = Process(target=btc.btcMiner, args=(fails, lock,hits))
+                    m.start()
+                t.start()
+            elif miner == "ltc":
+                for i in range(int(thrds)):
+                    m = Process(target=btc.btcMiner, args=(fails, lock,hits))
+                    m.start()
+                t.start()
+            elif miner == "eth":
+                for i in range(int(thrds)):
+                    m = Process(target=btc.btcMiner, args=(fails, lock,hits))
+                    m.start()
+                t.start()
+            else:
+                print(Colorate.Horizontal(Colors.red_to_white, "Your miner isnt valid!"))
+                sleep(10)
+                quit()
+        except Exception as e:
+            print(e)
 
     menu()

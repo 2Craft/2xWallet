@@ -43,10 +43,17 @@ def HitWebhook(bal, wallet, WIF, words):
     else:
         return None
 
-def btcMiner(fails, lock):
-    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+def btcMiner(fails, lock, hits):
     config = configparser.ConfigParser()
     config.read('config.ini')
+    if str(config['main']['useConfig']) == "True":
+        show = str(config['optional']['showOnlyHits'])
+        if show == "True":
+            show = 1
+        else:
+            show = 0
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
     l = "balance"
     now = datetime.now()
     timeB = now.strftime("%H:%M:%S") 
@@ -55,7 +62,7 @@ def btcMiner(fails, lock):
         changeProxRatio = int(config["optional"]["changeProxyRatio"])
         with open("proxys.txt") as f:
             proxies = [line.strip() for line in f]
-
+    #print("Starting thread..")
     while True:
         if str(config["optional"]["useProxy"]) == "True":
             if changeProxRatio == int(config["optional"]["changeProxyRatio"]):
@@ -88,6 +95,10 @@ def btcMiner(fails, lock):
                 for balance in ls:
                     bal = balance["balance"]
                     if bal > 0:
+                        try:
+                            hits.value += 1
+                        except:
+                            continue
                         f = open("hits.txt", "a")
                         data = (f'New Hit! | balance: {bal} | Wallet: {address} | WIF: {WIF} | Phrase: {words}')
                         f.write(str(data) + "\n")
@@ -97,17 +108,21 @@ def btcMiner(fails, lock):
                             HitWebhook(bal, address, WIF, words)
                         except:
                             print("Webhook Error!")
+                            continue
                         input("")
                     else:
-                        print(Colorate.Color(Colors.red, f"[{fails.value}] - Invalid: {address} | WIF: {WIF} | Phrase: {words}"))  
+                        if show != 1:
+                            print(Colorate.Color(Colors.red, f"[{fails.value}] - Invalid: {address} | WIF: {WIF} | Phrase: {words}"))  
                         fails.value += 1
                 else:
-                    print(Colorate.Color(Colors.red, f"[{fails.value}] - Invalid: {address} | WIF: {WIF} | Phrase: {words}"))  
+                    if show != 1:
+                        print(Colorate.Color(Colors.red, f"[{fails.value}] - Invalid: {address} | WIF: {WIF} | Phrase: {words}"))  
                     fails.value += 1
             except:
                 print("Blocked...")
         else:
-            print(Colorate.Color(Colors.red, f"[{fails.value}] - Invalid: {address} | WIF: {WIF} | Phrase: {words}"))  
+            if show != 1:
+                print(Colorate.Color(Colors.red, f"[{fails.value}] - Invalid: {address} | WIF: {WIF} | Phrase: {words}"))  
             fails.value += 1
 
 
