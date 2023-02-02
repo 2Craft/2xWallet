@@ -39,7 +39,7 @@ Simply download exodus wallet on your PC/Laptop and click on your BTC Wallet. Th
 #### Mnemoric Phrase
 Just login at Exodus/Metamask with the 12 Words mnemoric phrase and send the BTC to your main wallet. 
 
-## 🔗 Discord
+## 🔗 Discord (Click on the Logo)
 [![Discord](https://www.designtagebuch.de/wp-content/uploads/mediathek//2021/05/discord-logo-1100x825.jpg)](https://discord.gg/xVttMAQzhQ)
 
 
