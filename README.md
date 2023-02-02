@@ -8,8 +8,10 @@
 
 - Discord Webhook support
 - Multiple Threads
-- 200+ Checks per Second
+- Proxy Support
+- minimum of 200+ Checks per Second
 - Easy to use
+- Fast Support in the discord!
 
 
 ## Installation
