@@ -10,6 +10,7 @@ from datetime import datetime, date
 import configparser
 from time import sleep
 from pystyle import Anime, Write, Colorate, Colors, Box, Center
+from sys import platform
 
 
 def header():
@@ -40,10 +41,15 @@ def titleLoop(fails, lock, hits):
     while True:
         if z == 1:
             cps = fails.value - c
-        os.system(f'title 2xWallet >->> NoBal: {fails.value}  /  Started: {today}  CPS: {cps}')
+        terminal_title = f'2xWallet >->> NoBal: {fails.value}  /  Started: {today}  CPS: {cps}'
+        print(f'\33]0;{terminal_title}\a', end='', flush=True)  
         
         if show == "True":
-            os.system('cls')
+            if platform == "linux" or platform == "linux2":
+                os.system('clear')
+            else:
+                os.system('cls')
+                
             header()
             print(Center.XCenter(Colorate.Vertical(Colors.blue_to_purple, Box.DoubleCube(f"""
                            [Hits] - {hits.value}                           
