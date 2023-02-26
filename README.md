@@ -19,7 +19,7 @@
 Follow this steps or join my discord Server!
 
 ```bash
-    pip install -r requirements.txt
+    Start install.bat
 ```
 If there are errors, install every libary from requirements.txt by yourself.
 After That, fill the config.ini file and start the start.bat file :)
