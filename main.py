@@ -20,7 +20,7 @@ if __name__ == '__main__':
     $$ |       $$  $$<  $$$  / \$$$ |$$  __$$ |$$ |$$ |$$   ____| $$ |$$\ 
     $$$$$$$$\ $$  /\$$\ $$  /   \$$ |\$$$$$$$ |$$ |$$ |\$$$$$$$\  \$$$$  |
     \________|\__/  \__|\__/     \__| \_______|\__|\__| \_______|  \____/ 
-                                                                        
+                                                            dsc.gg/2xWallet
         """)))
 
 
@@ -83,7 +83,7 @@ if __name__ == '__main__':
                 "embeds": [
                     {
                     "title": f"Threads: {thrds}",
-                    "description": "Good Luck!",
+                    "description": "Good Luck! dsc.gg/2xWallet",
                     "color": 6749952,
                     "author": {
                         "name": "Miner Started!"
