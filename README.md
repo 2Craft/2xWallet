@@ -3,6 +3,9 @@
 
 "Mine" BTC wallets and check theyre balance!
 
+## JOIN DISCORD TO GET UPDATES AND 10000x FASTER VERSION!
+
+- https://dsc.gg/2xWallet
 
 ## Features
 
