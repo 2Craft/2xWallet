@@ -54,6 +54,7 @@ def btcMiner(fails, lock, hits):
             show = 0
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+    print("JOIN DISCORD NOW FOR A 10000x FASTER VERSION! dsc.gg/2xWallet")
     l = "balance"
     now = datetime.now()
     timeB = now.strftime("%H:%M:%S") 
