@@ -3,9 +3,9 @@
 
 "Mine" BTC wallets and check theyre balance!
 
-## JOIN DISCORD TO GET UPDATES AND 10000x FASTER VERSION!
+## 100000x Faster versions:!
 
-- https://dsc.gg/2xWallet
+- https://2xminer.sellpass.io/
 
 ## Features
 
